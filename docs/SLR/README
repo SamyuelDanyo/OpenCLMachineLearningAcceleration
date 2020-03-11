@@ -1,19 +1,33 @@
-Running the SImple Linear Regression System
+Usage:
+
+Requires:
+g++
+Intel FPGA OpenCL SDK
 
 List Avaliable Boards: <aoc --list-boards>
 
-Kernel Compilation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\terasic\de1soc\") <aoc -v device/simple_linear_regression.cl -o bin/simple_linear_regression.aocx --board de1soc_sharedonly>
+Kernel Compilation:
+  (NB! < setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\terasic\de1soc\" >)
+  < aoc -v device/simple_linear_regression.cl -o bin/simple_linear_regression.aocx --board de1soc_sharedonly >
 
-Kernel Compilation for Emulation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\s5_ref\") <aoc -march=emulator -v device/simple_linear_regression.cl -o bin/simple_linear_regression_e.aocx --board de1soc_sharedonly>	
+Kernel Compilation for Emulation:
+  (NB! < setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\s5_ref\" >)
+  < aoc -march=emulator -v device/simple_linear_regression.cl -o bin/simple_linear_regression_e.aocx --board de1soc_sharedonly >	
 
-Host Program Compilation: <make EMUL=1> for g++, [WIN, Lin] host compilation, <make> for ARM host (Makefile_main used)
+Host Program Compilation:
+  (Makefile_main used)
+  < make EMUL=1 > for g++, [WIN, Lin] host compilation
+  < make > for ARM host
 
-Host C++ Program Compilation: <make EMUL=1> for g++, [WIN, Lin] host compilation, <make> for ARM host (Makefile_main_c used)
+Host C++ Program (Benchmark) Compilation:
+(Makefile_main_c used)
+< make EMUL=1 > for g++, [WIN, Lin] host compilation
+< make > for ARM host
 
 Run (ON ARM)C++: bin/host_c
 Run Emulation(NOT ARM) C++: bin/host_c_e
 
 RUN: bin/host
-Emulator Run: <CL_CONTEXT_EMULATOR_DEVICE_ALTERA=1 bin/host_e>
+Emulator Run: < CL_CONTEXT_EMULATOR_DEVICE_ALTERA=1 bin/host_e >
 
-Emulator Wrapper Run: <./Emulation -p>
+Emulator Wrapper Run: < ./Emulation -p >

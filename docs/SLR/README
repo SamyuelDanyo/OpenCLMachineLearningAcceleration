@@ -1,8 +1,46 @@
-Usage:
+| Python Usage: |
+-----------------
 
-Requires:
-g++
-Intel FPGA OpenCL SDK
+Dependencies:
+------------
+    Python --version >= 3.7
+    Python Standard Library: (math, time, collections,
+                              os, __future__, itertools)
+    Third Party: (Numpy, matplotlib, sklearn)
+
+    Recommended:
+        Please make sure that you have installed Anaconda Python (version >= 3.7) in your environment.
+        Information on installing Anaconda:
+        < https://www.anaconda.com/distribution/ >
+        < https://docs.anaconda.com/anaconda/install/windows/ >
+        < https://docs.anaconda.com/anaconda/install/linux/ >
+
+    Secondary:
+        If you already have Python &/or do not want to install a full distribution:
+        Make sure your environment satisfies all the requirements/dependencies listed above.
+        
+Interactive
+-----------
+The project is also provided in a Jupyter Notebook, which is a web-based interactive
+Python interpreter that allows users to type and run Python code in a web browser.
+An example execution is exported to html notebook "3L_NN_MNIST.html" and can be found in <./>
+Please make sure that you satisfy the above-mentioned requirements, Jupyter Notebook will
+be installed along with Anaconda.
+
+1. Open Anaconda Prompt (or your Python environment prompt).
+2. Navigate to the home directory of "3L_NN_MNIST.ipynb"
+3. Execute < jupyter notebook >
+4. Click on the "3L_NN_MNIST" notebook.
+5. Start running the blocks of code sequentially either by clicking the < run cell, select below > button
+   or by keys < shift + Enter > while selected the block of code.
+
+| C++ Usage: |
+--------------
+
+Dependencies:
+-------------
+  g++
+  Intel FPGA OpenCL SDK
 
 List Avaliable Boards: <aoc --list-boards>
 

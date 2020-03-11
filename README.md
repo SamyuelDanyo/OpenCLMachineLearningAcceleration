@@ -6,17 +6,26 @@ Full Report outlining sytem architecture, design, experiment and findings + full
 Full build for computer emulation and FPGA acceleration are provided.
 Information on how to run Jupyter Notebook Python code, .py Python scripts, C++ implementation and the heterogenious C++/OpenCL code can be found in the README-s, as well as further documentation including "Step-by-Step Guide for Running OpenCL Applications on Intel FPGAs" can be found in my report.
 
+
 ## Python Implementation Results:
 
 ![Simple Linear Regression Plot](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/slr_plot.png)
+
 ![3L_NN_MNIST Cost](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_cost_convergence.PNG)
+
 ![3L_NN_MNIST Accuracy](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_accuracy.PNG)
+
 ![3L_NN_MNIST Confusion](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_test_confusion.PNG)
+
 ![3L_NN_MNIST Prediction](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_test_predict.PNG)
+
 
 ## Acceleration Kernel Architecture
 
+#### Simple Linear Regression
 ![Simple Linear Regression Kernel Arch](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/slr_kernel_arch.PNG)
+
+#### 3-Layer Neural Network
 ![3L_NN_MNIST Kernel Arch](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_kernel_arch.PNG)
 
 __For further information and result plots please check below.__
@@ -76,15 +85,22 @@ __Based on the points made above the objectives of this project are:__
 ## OpenCL:
 
 ![OpenCL Acceleration](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/normal_accelerated_app_comp.PNG)
+
 ![OpenCL Compilation](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_app_compilation.PNG)
+
 
 ## SLR Acceleration Plots:
 ![SLR Accelerated inference](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_slr_inference.png)
+
 ![SLR Accelerated inference Errors](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_slr_inference_errors.png)
+
 
 ## SLR Acceleration Results:
 
 ![SLR Kernel Time](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/kernel_time.PNG)
+
 ![SLR Kernel Logic](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/logic.PNG)
+
 ![SLR Kernel Logic Efficiency](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/logic_eff.PNG)
+
 ![SLR Kernel Speed Logic Efficiency](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/s_log_eff.PNG)

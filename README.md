@@ -4,7 +4,22 @@ Custom designed Simple Linear Regression and 3-Layer Neural Network for MNIST cl
 implemented for training in Python, benchmark inference in C++ and inference accelerationn in C++/OpenCL.
 Full Report outlining sytem architecture, design, experiment and findings + full source code are included.
 Full build for computer emulation and FPGA acceleration are provided.
-Information on how to run Jupyter Notebook Python code, .py Python scripts, C++ implementation and the heterogenious C++/OpenCL code can be found in the README-s, as well as further documentation including "Step-by-Step Guide for Running OpenCL Applications on Intel FPGAs" can be found in my report. 
+Information on how to run Jupyter Notebook Python code, .py Python scripts, C++ implementation and the heterogenious C++/OpenCL code can be found in the README-s, as well as further documentation including "Step-by-Step Guide for Running OpenCL Applications on Intel FPGAs" can be found in my report.
+
+## Python Implementation Results:
+
+![Simple Linear Regression Plot](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/slr_plot.png)
+![3L_NN_MNIST Cost](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_cost_convergence.PNG)
+![3L_NN_MNIST Accuracy](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_accuracy.PNG)
+![3L_NN_MNIST Confusion](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_test_confusion.PNG)
+![3L_NN_MNIST Prediction](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_test_predict.PNG)
+
+## Acceleration Kernel Architecture
+
+![Simple Linear Regression Kernel Arch](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/slr_kernel_arch.PNG)
+![3L_NN_MNIST Kernel Arch](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/nn_kernel_arch.PNG)
+
+__For further information and result plots please check below.__
 
 | Abstract |
 ------------ 
@@ -19,13 +34,13 @@ Finally, I discuss the implementation of a four-layer Neural Network, classifyin
 
 | Introduction and Motivation |
 -------------------------------
-1.1 Why Machine Learning?
+__1.1 Why Machine Learning?__
 
 The Machine Learning (ML) field solves problems, too complex to be explicitlyprogrammed, by creating algorithms, which through the process of trial and error [1] learn models, mapping input data to a desired output [2].
 
 Powerful example of a ML application is in the field of science dealing with how computers can understand images, called computer vision (CV). While for humans it is easy to distinguish a cat in a picture, this task is extremely hard for a computer. There are unlimited combinations of different cats in different surroundings. Even capturing the same cat in the same room, over time produces a vast set of different images. If this problem is approached with conventional programming methods or statistics, every possible picture of all cats needs to be labeled and explicitly coded for a computer to be able to make a decision if in a random image there is a cat or not. However, labeling all pictures is impossible and this is where the greatest advantage of ML comes in. Through a limited set of cat and not-cat images (training set) a ML algorithm is able to detect patterns and produce a model, which we as humans cannot understand but when a random image is presented, the computer is able to gain understanding through it and make a decision.
 
-1.2 Why Machine Learning needs to be accelerated?
+__1.2 Why Machine Learning needs to be accelerated?__
 
 One type of ML algorithms is called Neural Networks (NN) [3]. They analyze gigantic amounts of input data, tuning the model on every iteration, until aimed accuracy is achieved [4]. During both: training and processing real, previously unseen, data (inference), NNs need huge amounts of computing power.
 
@@ -39,13 +54,13 @@ I also share this belief, especially considering use-cases such as smart secure 
 
 Edge Computing delivers another reason for the development of better ML and bigdata processing systems. Utilizing heterogeneous computing API frameworks can be the key to efficient edge computing systems (gateways), which will be leveraging the advantages of a symbiosis between different types of processors.
 
-1.3 Accelerator requirements.
+__1.3 Accelerator requirements.__
 
 Nevertheless, even with the tremendous progress in Processing Units (PU) and the ever-cheaper computing power, the price, as well as, environmental cost of implementing AI systems [10] are too high for mass market.
 
 General Purpose Processing Units (GPPU) have the advantage of flexibility - being able to run various software, which is crucial for the fast innovation cycle of ML. However, that same advantage brings drawbacks, as the cost for being GP is subsystems that are not needed for every application but still draw power and increase latency. Furthermore, there is little visibility into the processing data flow, preventing developers from taking advantage of software specifics. The results are: lower speed and higher power usage. For bringing ML to complex, real-life uses, an extremely power-efficient solution with extended hardware-configuration control is needed. However, it still needs to be flexible, allowing the execution of various software, incorporating the fast innovation in ML.
 
-1.4 Possible solutions.
+__1.4 Possible solutions.__
 
 While in the past, most of the technological innovation has been in hardware, in the last twenty years it has shifted to software, with ML being the brightest example. This is due to physical limitations, as well as, cost. Previously, if a person wanted to upgrade to the next generation of technology, they needed to buy the new, better device. This results in cumbersome hardware innovation cycle, slowing its propagation through society. In contrast, software provides better flexibility, bottlenecks are easier overcome and there not big overhead manufacturing costs or production time. Furthermore, all users can download the new application on their, already owned, device in a day. Despite all of the points made above, usually, either GP hardware is used or software is designed for a particular hardware. I believe the opposite approach is more logical – designing hardware, customized for a particular application. This can drive faster innovation process, increase power-efficiency and make use of the software’s specifications, avoiding unnecessary parts in the system. 
  
@@ -53,7 +68,23 @@ One solution to the problem is designing Application-Specific Integrated Circuit
 
 OpenCL makes hardware design faster by abstracting its low-level complexities, allowing the focus to be on functionality - similarly to software development. It bridges the gap between software and hardware, as well as, between different hardware platforms, making the implementations portable and more powerful. Intel FPGA SDK for OpenCL [12] brings another degree of freedom to the process, by automating optimization and synthesis of hardware and interfacing.
 
-Based on the points made above the objectives of this project are:
+__Based on the points made above the objectives of this project are:__
   Implementing a ML algorithm in OpenCL for FPGA acceleration.
   Studying the OpenCL framework’s function in heterogenous system of a host-CPU and a FPGA-accelerator.
   Testing if FPGA computing can provide a boost to ML applications’ performance.
+
+## OpenCL:
+
+![OpenCL Acceleration](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/normal_accelerated_app_comp.PNG)
+![OpenCL Compilation](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_app_compilation.PNG)
+
+## SLR Acceleration Plots:
+![SLR Accelerated inference](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_slr_inference.png)
+![SLR Accelerated inference Errors](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/opencl_slr_inference_errors.png)
+
+## SLR Acceleration Results:
+
+![SLR Kernel Time](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/kernel_time.PNG)
+![SLR Kernel Logic](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/logic.PNG)
+![SLR Kernel Logic Efficiency](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/logic_eff.PNG)
+![SLR Kernel Speed Logic Efficiency](https://github.com/SamyuelDanyo/OpenCLMachineLearningAcceleration/blob/master/res/s_log_eff.PNG)

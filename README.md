@@ -1,9 +1,10 @@
 # OpenCLMachineLearningAcceleration
 OpenCL Machine Learning Acceleration on FPGA using Intel FPGA OpenCL SDK.
 Custom designed Simple Linear Regression and 3-Layer Neural Network for MNIST classification
-implemented for training in Python, benchmark inference in C++ and accelerationn in C++/OpenCL.
+implemented for training in Python, benchmark inference in C++ and inference accelerationn in C++/OpenCL.
 Full Report outlining sytem architecture, design, experiment and findings + full source code are included.
-Information on how to run Jupyter Notebook Python code, .py Python scripts, C++ implementation and the heterogenious C++/OpenCL code can be found in the README, as well as further documentation including "Step-by-Step Guide for Running OpenCL Applications on Intel FPGAs" can be found in my report. 
+Full build for computer emulation and FPGA acceleration are provided.
+Information on how to run Jupyter Notebook Python code, .py Python scripts, C++ implementation and the heterogenious C++/OpenCL code can be found in the README-s, as well as further documentation including "Step-by-Step Guide for Running OpenCL Applications on Intel FPGAs" can be found in my report. 
 
 | Abstract |
 ------------ 

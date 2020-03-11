@@ -2,9 +2,9 @@ Running the SImple Linear Regression System
 
 List Avaliable Boards: <aoc --list-boards>
 
-Kernel Compilation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\terasic\de1soc\") <aoc -v device/4_layer_nn.cl -o bin/4_layer_nn.aocx --board de1soc_sharedonly>
+Kernel Compilation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\terasic\de1soc\") <aoc -v device/3L_NN_MNIST.cl -o bin/3L_NN_MNIST.aocx --board de1soc_sharedonly>
 
-Kernel Compilation for Emulation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\s5_ref\") <aoc -march=emulator -v device/4_layer_nn.cl -o bin/4_layer_nn_e.aocx --board de1soc_sharedonly>	
+Kernel Compilation for Emulation: (NB! setx AOCL_BOARD_PACKAGE_ROOT "C:\Apps\intelFPGA\16.1\hld\board\s5_ref\") <aoc -march=emulator -v device/3L_NN_MNIST.cl -o bin/3L_NN_MNIST_e.aocx --board de1soc_sharedonly>	
 
 Host Program Compilation: <make EMUL=1> for g++, [WIN, Lin] host compilation, <make> for ARM host (Makefile_main used)
 
